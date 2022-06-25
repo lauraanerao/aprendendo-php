@@ -1,6 +1,6 @@
 <?php
 
-	echo "Hello World. Ol";			
+	echo "Hello World. Olá Mundo!";			
 
 	echo "<br> Rumo ao Laravel";
 	
