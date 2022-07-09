@@ -30,6 +30,22 @@
  * Exemplo: Para A=5, B=4, imprima "4 5".
  */
 
+$a = 9;
+
+$b = 10;
+
+if ($a > $b) {
+
+    echo "$b, $a";
+
+}
+
+else {
+
+    echo "$a, $b";
+
+}
+
 /*
  * Faça um algoritmo em PHP que verifica se o valor da variável A é maior ou menor que o valor da variável B.
  * A mensagem a ser impressa deve ser “A maior que B” ou “A menor que B”.
