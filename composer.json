@@ -1,4 +1,7 @@
 {
+    "autoload": {
+        "classmap": ["poo/namespace/class"]
+    },
     "require": {
         "nesbot/carbon": "^2.60"
     }
