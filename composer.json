@@ -1,8 +1,10 @@
 {
     "autoload": {
-        "classmap": ["poo/namespace/class"]
+        "classmap": ["poo/namespace/class", "dao/Models"]
     },
     "require": {
-        "nesbot/carbon": "^2.60"
+        "nesbot/carbon": "^2.60",
+        "ext-pdo": "*",
+        "ext-json": "*"
     }
 }
