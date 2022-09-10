@@ -1,11 +1,14 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once("../vendor/autoload.php");
 
-use Models\Sql;
+$root = new usuario();
 
-$sql = new Sql();
+$root->loadById(2);
 
-$usuarios = $sql->select("SELECT * FROM usuarios");
+echo $root;
 
-echo json_encode($usuarios);
