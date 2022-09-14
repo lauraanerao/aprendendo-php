@@ -1,6 +1,8 @@
 {
     "autoload": {
-        "classmap": ["poo/namespace/class", "dao/class"]
+        "classmap": ["poo/namespace/class",
+          "dao/App"
+        ]
     },
     "require": {
         "nesbot/carbon": "^2.60",

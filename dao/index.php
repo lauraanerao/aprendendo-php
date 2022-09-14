@@ -1,14 +1,31 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-require_once("../vendor/autoload.php");
+use App\Usuario\Usuario;
 
-$root = new usuario();
+require_once("config.php");
 
-$root->loadById(2);
 
-echo $root;
+//Carrega um usuario
+//$root = new usuario();
+//$root->loadById(2);
+//echo $root;
+
+//Carrega uma lista de usuarios
+//$lista = Usuario::getList();
+//echo json_encode($lista);
+
+//Carrega uma lista de usuários buscando pelo login
+//echo json_encode(Usuario::search("jo"));
+
+//Carrega um usuário usando login e senha
+$usuario = new Usuario();
+$usuario->login("joao", "123456");
+
+echo $usuario;
+echo "<hr>";
+
+$usuario->login("joao", "123458");
+
+echo $usuario;
 

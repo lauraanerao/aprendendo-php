@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Models;
+namespace App\Sql;
 
 use PDO;
 
