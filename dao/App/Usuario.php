@@ -60,12 +60,7 @@ class Usuario {
 
         if (count($results) > 0) {
 
-            $row = $results[0];
-
-            $this->setId($row['id']);
-            $this->setLogin($row['login']);
-            $this->setSenha($row['senha']);
-            $this->setDataCadastro(new DateTime($row['dataCadastro']));
+            $this->setData($results[0]);
         }
     }
 
@@ -101,26 +96,56 @@ class Usuario {
 
         if (count($results) > 0) {
 
-            $row = $results[0];
-
-            $this->setId($row['id']);
-            $this->setLogin($row['login']);
-            $this->setSenha($row['senha']);
-            $this->setDataCadastro(new DateTime($row['dataCadastro']));
+            $this->setData($results[0]);
 
         } else {
 
             throw new Exception("Login e/ou senha incorretos.");
 
         }
+
     }
-    public function __toString(){
+
+
+   public function __toString(){
         return json_encode(array(
            "id"=>$this->getId(),
            "login"=>$this->getLogin(),
            "senha"=>$this->getSenha(),
-           "dataCadastro"=>$this->getDataCadastro()->format("d/m/Y H:i:s")
+          // "dataCadastro"=>$this->getDataCadastro()->format("d/m/Y H:i:s")
         ));
+    }
+
+   public function __construct($login = "", $password = ""){
+
+       $this->setLogin($login);
+       $this->setSenha($password);
+
+    }
+
+    public function insert(){
+        $sql = new Sql();
+        $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(
+            ':LOGIN'=>$this->getLogin(),
+            ':PASSWORD'=>$this->getSenha()
+        ));
+
+        if (count($results) > 0) {
+            $this->setData($results[0]);
+        }
+    }
+
+    /**
+     * @param $data
+     * @return void
+     * @throws Exception
+     */
+    private function setData($data): void
+    {
+        $this->setId($data['id']);
+        $this->setLogin($data['login']);
+        $this->setSenha($data['senha']);
+        $this->setDataCadastro(new DateTime($data['dataCadastro']));
     }
 
 }
