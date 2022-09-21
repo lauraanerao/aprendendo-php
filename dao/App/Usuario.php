@@ -116,6 +116,21 @@ class Usuario {
         ));
     }
 
+    public function update($login, $password){
+
+        $this->setLogin($login);
+        $this->setSenha($password);
+
+        $sql = new sql();
+        $sql->query("UPDATE usuarios SET login = :LOGIN, senha = :PASSWORD WHERE id = :ID", array(
+           ':LOGIN'=>$this->getLogin(),
+            'PASSWORD'=>$this->getSenha(),
+            ':ID'=>$this->getId()
+        ));
+
+
+    }
+
    public function __construct($login = "", $password = ""){
 
        $this->setLogin($login);
