@@ -115,7 +115,6 @@ class Usuario {
           // "dataCadastro"=>$this->getDataCadastro()->format("d/m/Y H:i:s")
         ));
     }
-
     public function update($login, $password){
 
         $this->setLogin($login);
@@ -127,7 +126,20 @@ class Usuario {
             'PASSWORD'=>$this->getSenha(),
             ':ID'=>$this->getId()
         ));
+    }
 
+    public function delete(){
+
+        $sql = new Sql();
+
+        $sql->query("DELETE FROM usuarios WHERE id = :ID", array(
+            ':ID'=>$this->getId()
+        ));
+
+        $this->setId(0);
+        $this->setLogin("");
+        $this->setSenha("");
+        $this->setDataCadastro(new DateTime());
 
     }
 

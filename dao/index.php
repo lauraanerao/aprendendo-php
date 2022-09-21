@@ -37,11 +37,12 @@ require_once("config.php");
 
 $usuario = new Usuario();
 
-$usuario->loadById(69);
+$usuario->loadById(68);
 
-$usuario->update("professor69", "123456");
+$usuario->delete();
 
 echo $usuario;
+
 
 
 
