@@ -1,0 +1,6 @@
+<?php
+
+$emailConfig['host'] = '';
+$emailConfig['username'] = '';
+$emailConfig['password'] = '';
+$emailConfig['from'] = '';

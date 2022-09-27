@@ -1,2 +1,4 @@
 .idea
 /vendor
+/email/config.php
+/email/vendor/
